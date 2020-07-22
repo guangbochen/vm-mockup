@@ -33,6 +33,10 @@ a {
 .container-fluid {
   padding-left: $grid-gutter-width;
   padding-right: $grid-gutter-width;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 87%
 }
 
 // Scroll to top button
