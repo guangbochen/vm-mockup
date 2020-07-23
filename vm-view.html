@@ -18,6 +18,9 @@
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
+  <!-- Custom styles for this page -->
+  <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
 </head>
 
 <body id="page-top">
@@ -54,12 +57,12 @@
         Manage
       </div>
 
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="vm.html">
           <span>Virtual Machines</span></a>
       </li>
 
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="images.html">
           <span>Images</span></a>
       </li>
@@ -224,59 +227,15 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-
           <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Import Image</h1>
-          </div>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="vm.html">Virtual Machines</a></li>
+              <li class="breadcrumb-item active" aria-current="page">vm-20200715194c</li>
+            </ol>
+          </nav>
 
-          <!-- Content Row -->
-          <div class="row">
-            <div class="col-lg-12 mb-12 bg-white">
-              <br>
-              <form>
-                <div class="form-group">
-                  <label for="url">*Enter URL<small class="text-info"> - Note GC: should validate url's path is compatible with supported extension, ie. .gz. xz .ISO.</small></label>
-                  <input type="text" class="form-control" id="url" aria-describedby="urlHelp" value="e.g. https://launchpad.net/cirros/trunk/0.3.0/+download/cirros-0.3.0-x86_64-uec.tar.gz">
-                  <small id="urlHelp" class="form-text text-muted">Supports the raw and qcow2 image formats which are supported by qemu. Bootable ISO images can also be used and are treated like raw images. Images may be compressed with either the gz or xz format.</small>
-                </div>
-                <div class="form-group">
-                  <label for="imageName">*Image Name<small class="text-info"> - Note GC: name should be auto-generated upon the url's filename.</small></label>
-                  <input type="text" class="form-control" id="url" aria-describedby="imageName" value="cirros-0.3.0-x86_64-uec.tar.gz">
-                  <small id="imageName" class="form-text text-muted"></small>
-                  <small class="text-danger"></small>
-                </div>
-                <div class="form-group">
-                  <label for="distribution">*Distribution</label>
-                  <select class="form-control" id="distributionHelp">
-                    <option selected>Choose a distribution</option>
-                    <option>Arch Linux</option>
-                    <option>CentOS</option>
-                    <option>Fedora</option>
-                    <option>Microsoft Windows</option>
-                    <option>OpenSUSE</option>
-                    <option>Unknown</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="labels">Labels</label>
-                  <input type="text" class="form-control" id="labels" aria-describedby="labelsHelp">
-                  <small id="labelsHelp" class="form-text text-muted">Labels may contain letters, numbers, colons, and dashes.</small>
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Notes</label>
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                </div>
-                <p class="text-danger">The URL you have entered ends in an extension that we do not support. We only accept image files that end in gz, bz2, vmdk, vhdx, qcow, qcow2, vdi, raw, img, xz. (.zip is not supported).</p>
-                <br>
-                <div class="mx-auto" style="width: 200px;">
-                  <a type="submit" class="btn btn-lg btn-primary" href="images.html">Upload</a>
-                  <a type="calcel" class="btn btn-lg btn-outline-secondary" href="images.html">Cancel</a>
-                </div>
-              </form>
-              <br>
-            </div>
-          </div>
+        </div>
         <!-- /.container-fluid -->
 
       </div>
@@ -333,17 +292,14 @@
   <script src="js/sb-admin-2.min.js"></script>
 
   <!-- Page level plugins -->
-  <script src="vendor/chart.js/Chart.min.js"></script>
+  <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
   <!-- Page level custom scripts -->
-  <script src="js/demo/chart-area-demo.js"></script>
-  <script src="js/demo/chart-pie-demo.js"></script>
+  <script src="js/demo/datatables-demo.js"></script>
   <script>
-    $(function () {
-      $('[data-toggle="tooltip"]').tooltip()
-    })
+    $('.dropdown-toggle').dropdown()
   </script>
-
 
 </body>
 

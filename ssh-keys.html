@@ -59,11 +59,11 @@
           <span>Virtual Machines</span></a>
       </li>
 
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="images.html">
           <span>Images</span></a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="ssh-keys.html">
           <span>SSH Keys</span></a>
       </li>
@@ -227,57 +227,81 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Import Image</h1>
+            <h1 class="h3 mb-0 text-gray-800">SSH Keys</h1>
           </div>
 
-          <!-- Content Row -->
-          <div class="row">
-            <div class="col-lg-12 mb-12 bg-white">
-              <br>
-              <form>
-                <div class="form-group">
-                  <label for="url">*Enter URL<small class="text-info"> - Note GC: should validate url's path is compatible with supported extension, ie. .gz. xz .ISO.</small></label>
-                  <input type="text" class="form-control" id="url" aria-describedby="urlHelp" value="e.g. https://launchpad.net/cirros/trunk/0.3.0/+download/cirros-0.3.0-x86_64-uec.tar.gz">
-                  <small id="urlHelp" class="form-text text-muted">Supports the raw and qcow2 image formats which are supported by qemu. Bootable ISO images can also be used and are treated like raw images. Images may be compressed with either the gz or xz format.</small>
-                </div>
-                <div class="form-group">
-                  <label for="imageName">*Image Name<small class="text-info"> - Note GC: name should be auto-generated upon the url's filename.</small></label>
-                  <input type="text" class="form-control" id="url" aria-describedby="imageName" value="cirros-0.3.0-x86_64-uec.tar.gz">
-                  <small id="imageName" class="form-text text-muted"></small>
-                  <small class="text-danger"></small>
-                </div>
-                <div class="form-group">
-                  <label for="distribution">*Distribution</label>
-                  <select class="form-control" id="distributionHelp">
-                    <option selected>Choose a distribution</option>
-                    <option>Arch Linux</option>
-                    <option>CentOS</option>
-                    <option>Fedora</option>
-                    <option>Microsoft Windows</option>
-                    <option>OpenSUSE</option>
-                    <option>Unknown</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="labels">Labels</label>
-                  <input type="text" class="form-control" id="labels" aria-describedby="labelsHelp">
-                  <small id="labelsHelp" class="form-text text-muted">Labels may contain letters, numbers, colons, and dashes.</small>
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Notes</label>
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                </div>
-                <p class="text-danger">The URL you have entered ends in an extension that we do not support. We only accept image files that end in gz, bz2, vmdk, vhdx, qcow, qcow2, vdi, raw, img, xz. (.zip is not supported).</p>
-                <br>
-                <div class="mx-auto" style="width: 200px;">
-                  <a type="submit" class="btn btn-lg btn-primary" href="images.html">Upload</a>
-                  <a type="calcel" class="btn btn-lg btn-outline-secondary" href="images.html">Cancel</a>
-                </div>
-              </form>
-              <br>
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <a type="button" class="btn btn-outline-primary fa-pull-right" data-toggle="modal" data-target="#sshKeyModal">Add SSH Key</a>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Fingerprint</th>
+                    <th></th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>mysshkey</td>
+                    <td>51:1c:01:f7:92:e2:26:6a:5b:d4:97:ea:b8:c2:81:fa</td>
+                    <td>
+                      <div class="dropdown">
+                        <button class="btn btn-link dropdown-toggle" type="button" id="actions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                          ...
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="actions">
+                          <a class="dropdown-item" data-toggle="modal" data-target="#sshKeyModal">Edit</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item text-danger" href="#">Delete</a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
+
+        </div>
         <!-- /.container-fluid -->
+
+        <!-- modal -->
+        <div class="modal" id="sshKeyModal" tabindex="-1" role="dialog" aria-labelledby="sshKeyModal" aria-hidden="true">
+          <div class="modal-dialog modal-lg" style="max-width: 700px;">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add Public SSH Key</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-group">
+                    <label for="inputSource">*Name</label>
+                    <input type="text" class="form-control" id="sshName" value="mysshkey">
+                  </div>
+                  <p>Copy your public SSH key and paste it in the space below. For instructions on how, follow the steps on the right.</p>
+                  <div class="form-group">
+                    <div class="form-group">
+                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="8">ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCi8G9R572BRUsvXuFlcQ7BzsWx4uB+8+u4sYiilw+olZWuU4F3VLcNLRfChcweHrRLxlLvdDEa9Iamu7YwSCt4Mr6GgbIG1kpcxrD+SL0f9iwCdUbw9WWtDKvXMEA6h6pWQsDMpjZ8LAJIKBDxjYly/+195BYHIyP8Z1l6Ei5JWayHDu5xYF+Cw1ycHWqm1w8qRywq3hqD6rVM3oq9fAyFbzvlU9FhooRSNTv/WbuuHyo6iYD8zPj0tfxoc59oWt0KuJjIMikc7qobrBlAZTK6kLehHjYQ/1A+MLcyQuiKhsf0oVNMZrNeVNwTbRGgUNU6LNqSn2irNYCJHETkzJ+5 guangbochen@guangbos-MacBook-Pro.local</textarea>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Add SSH Key</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.modal -->
 
       </div>
       <!-- End of Main Content -->

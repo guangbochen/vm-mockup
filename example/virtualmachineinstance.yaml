@@ -1,0 +1,98 @@
+apiVersion: kubevirt.io/v1alpha3
+kind: VirtualMachineInstance
+metadata:
+  name: vm-example
+  namespace: default
+  annotations:
+    kubevirt.io/latest-observed-api-version: v1alpha3
+    kubevirt.io/storage-observed-api-version: v1alpha3
+  creationTimestamp: "2020-07-20T09:37:38Z"
+  finalizers:
+  - foregroundDeleteVirtualMachine
+  generation: 8
+  labels:
+    kubevirt.io/domain: vm-example
+    kubevirt.io/nodeName: 172.16.0.254
+    os.template.kubevirt.io/fedora31: "true"
+    vm.kubevirt.io/name: vm-example
+    workload.template.kubevirt.io/server: "true"
+  ownerReferences:
+  - apiVersion: kubevirt.io/v1alpha3
+    blockOwnerDeletion: true
+    controller: true
+    kind: VirtualMachine
+    name: vm-example
+    uid: aef76860-d7d5-422a-8c27-b1fced3ca8d0
+  resourceVersion: "2697201"
+  selfLink: /apis/kubevirt.io/v1alpha3/namespaces/default/virtualmachineinstances/vm-example
+  uid: e8eea3e0-d41f-4bba-917f-831eb2a31a2c
+spec:
+  domain:
+    cpu:
+      cores: 1
+      sockets: 1
+      threads: 1
+    devices:
+      disks:
+      - bootOrder: 1
+        disk:
+          bus: virtio
+        name: containerdisk
+      - disk:
+          bus: virtio
+        name: cloudinitdisk
+      interfaces:
+      - masquerade: {}
+        name: default
+      networkInterfaceMultiqueue: true
+      rng: {}
+    features:
+      acpi:
+        enabled: true
+    firmware:
+      uuid: b993905d-d824-5b18-98d8-3a018d6c805e
+    machine:
+      type: q35
+    resources:
+      requests:
+        cpu: 100m
+        memory: 1G
+  hostname: vm-example
+  networks:
+  - name: default
+    pod: {}
+  terminationGracePeriodSeconds: 0
+  volumes:
+  - containerDisk:
+      image: kubevirt/fedora-cloud-container-disk-demo:latest
+      imagePullPolicy: Always
+    name: containerdisk
+  - cloudInitNoCloud:
+      userData: |-
+        #cloud-config
+        password: fedora
+        chpasswd: { expire: False }
+    name: cloudinitdisk
+status:
+  activePods:
+    83813de9-d338-4cba-90dd-f6f0a2b01b76: 172.16.0.254
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: null
+    status: "True"
+    type: LiveMigratable
+  - lastProbeTime: null
+    lastTransitionTime: "2020-07-20T09:40:31Z"
+    status: "True"
+    type: Ready
+  guestOSInfo: {}
+  interfaces:
+  - ipAddress: 10.42.0.98
+    ipAddresses:
+    - 10.42.0.98
+    mac: 02:00:00:ec:cb:89
+    name: default
+  migrationMethod: BlockMigration
+  nodeName: 172.16.0.254
+  phase: Running
+  qosClass: Burstable
