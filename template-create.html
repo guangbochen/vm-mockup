@@ -54,7 +54,7 @@
       Manage
     </div>
 
-    <li class="nav-item active">
+    <li class="nav-item">
       <a class="nav-link" href="vm.html">
         <span>Virtual Machines</span></a>
     </li>
@@ -67,7 +67,7 @@
       <a class="nav-link" href="ssh-keys.html">
         <span>SSH Keys</span></a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item active">
       <a class="nav-link" href="templates.html">
         <span>Templates</span></a>
     </li>
@@ -220,9 +220,7 @@
               </a>
             </div>
           </li>
-
         </ul>
-
       </nav>
       <!-- End of Topbar -->
 
@@ -231,126 +229,69 @@
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4" style="padding-top: 20px;">
-          <h1 class="h3 mb-0 text-gray-800">Create Virtual Machine</h1>
+          <h1 class="h3 mb-0 text-gray-800">Add VM Template</h1>
         </div>
+        <hr>
 
-        <!-- Content Row -->
-        <div class="row">
-          <div class="col-lg-12 mb-12">
-            <h5 class="text-dark">
-              Choose a source:
-              <a data-toggle="tooltip" data-placement="top" title="An external URL to the .iso, .img, .qcow2 or .raw that the virtual machine should be created from.">
-                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-question-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-                  <path d="M5.25 6.033h1.32c0-.781.458-1.384 1.36-1.384.685 0 1.313.343 1.313 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.007.463h1.307v-.355c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.326 0-2.786.647-2.754 2.533zm1.562 5.516c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
-                </svg>
-              </a>
-            </h5>
-          </div>
-        </div>
-
-        <div class="accordion" id="accordionExample">
-        <!--
-        <ul class="nav row">
-          <li class="nav-item">
-            <a class="nav-link active" href="#" type="button" data-toggle="collapse" data-target="#sourceUrl" aria-expanded="true" aria-controls="sourceUrl">
-              Custom Images
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" type="button" data-toggle="collapse" data-target="#sourcePXE" aria-expanded="false" aria-controls="sourcePXE">
-              PXE(Preboot Execution Environment)
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" type="button" data-toggle="collapse" data-target="#sourceContainer" aria-expanded="false" aria-controls="sourceContainer">
-              Container Image
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" type="button" data-toggle="collapse" data-target="#sourceDisk" aria-expanded="false" aria-controls="sourceDisk">
-              Disk
-            </a>
-          </li>
-        </ul> -->
-
-          <div class="card">
-            <div id="sourceUrl" class="collapse show col-lg-12" data-parent="#accordionExample">
-              <div class="card-body">
-                <div class="form-group fa-pull-right col-lg-12">
-                  <input type="text" class="form-control col-lg-5" id="exampleInputPassword1" placeholder="Search keyword">
-                </div>
-                <div class="row row-cols-1 row-cols-md-3">
-                  <div class="col mb-4">
-                    <div class="card h-100">
-                      <a class="card-body border-bottom-info text-dark" href="#">
-                        <i class="fab fa-2x fa-linux"></i><small> Arch Linux</small>
-                        <p>cirros-0.3.0-x86_64-disk.img<br></p>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="col mb-4">
-                    <div class="card h-100">
-                      <a class="card-body text-dark" href="#">
-                        <i class="fab fa-2x fa-windows"></i> <small> Windows Server</small>
-                        <p>en_windows_10_pro_14393_x86_dvd.iso<br></p>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <a type="button" class="btn btn-link" href="images.html">+ Add image</a>
-              </div>
-            </div>
-
-            <div id="sourcePXE" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-              <div class="card-body">
-                Add PXE
-              </div>
-            </div>
-
-            <div id="sourceContainer" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-              <div class="card-body">
-                Add container image
-              </div>
-            </div>
-
-            <div id="sourceDik" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-              <div class="card-body">
-                Add disk
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <br>
-        <br>
-        <!-- /.container-fluid -->
         <div class="row">
           <div class="col-lg-12">
-            <p class="text-dark">Use an existing VM Template and revision:</p>
             <form>
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <select id="inputTemplate" class="form-control">
-                    <option>Select a VM template</option>
-                    <option>openSUSE</option>
-                    <option>ubuntu</option>
-                  </select>
+                  <label for="inputCPU">* Template Name</label>
+                  <input type="text" class="form-control" id="inputCPU" value="ubuntu">
                 </div>
                 <div class="form-group col-md-6">
-                  <select id="inputTemplate" class="form-control">
-                    <option>Select a VM template revision</option>
-                    <option>custom1</option>
-                    <option>custom2</option>
-                  </select>
+                  <label for="inputMemory">* Revision Name</label>
+                  <input type="text" class="form-control" id="inputMemory" value="small">
                 </div>
               </div>
             </form>
           </div>
+          <div class="col-lg-12">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" checked>
+              <label class="form-check-label" for="defaultCheck1">
+                Default Revision
+              </label>
+            </div>
+          </div>
         </div>
+
 
         <br>
         <br>
+        <div class="accordion" id="accordionExample">
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="padding-left: 0px;">
+                Select Related OS Images:
+              </button>
+              <small>Choose to apply this template to the uploaded OS images, the template options will be set automatically when creating a new VM instance.</small>
+            </div>
+
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div class="card-body">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" value="">
+                  <label class="form-check-label" for="inlineCheckbox1">cirros-0.3.0-x86_64-disk.img</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" value="">
+                  <label class="form-check-label" for="inlineCheckbox1">en_windows_10_pro_14393_x86_dvd.iso</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" value="">
+                  <label class="form-check-label" for="inlineCheckbox1">ubuntu-18.04.64-disk.img</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-sm-flex align-items-center justify-content-between mb-4" style="padding-top: 50px;">
+          <h1 class="h5 mb-0 text-gray-800">Template Options</h1>
+        </div>
         <hr>
         <div class="row">
           <div class="col-lg-12">
@@ -359,11 +300,11 @@
             <form>
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="inputCPU">*CPU Request(core)</label>
+                  <label for="inputCPU">* CPU Request(core)</label>
                   <input type="text" class="form-control" id="inputCPU" value="2">
                 </div>
                 <div class="form-group col-md-5">
-                  <label for="inputMemory">*Memory Request</label>
+                  <label for="inputMemory">* Memory Request</label>
                   <input type="text" class="form-control" id="inputMemory" value="8">
                 </div>
                 <div class="form-group col-md-1">
@@ -385,7 +326,7 @@
         <br>
         <div class="row">
           <div class="col-lg-12">
-            <h5 class="text-dark">Add disk storage:</h5>
+            <h5 class="text-dark">Default disk storage:</h5>
             <table class="table table-hover">
               <thead>
               <tr>
@@ -629,64 +570,6 @@
         <br>
         <div class="row">
           <div class="col-lg-12">
-            <h5 class="text-dark">
-              Authentication:
-            </h5>
-
-            <div class="card">
-              <form class="card-body">
-                <p>Choose your SSH keys</p>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                  <label class="form-check-label" for="inlineCheckbox1">Select all</label>
-                </div>
-                <div class="form-check form-check-inline" data-toggle="tooltip" data-placement="top">
-                  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                  <label class="form-check-label" for="inlineCheckbox2">mynewsshkey</label>
-                </div>
-
-                <br>
-                <br>
-                <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#sshKeyModal">New SSH Key</button>
-              </form>
-            </div>
-            <div class="modal" id="sshKeyModal" tabindex="-1" role="dialog" aria-labelledby="sshKeyModal" aria-hidden="true">
-              <div class="modal-dialog modal-lg" style="max-width: 700px;">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add Public SSH Key</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <form>
-                      <div class="form-group">
-                        <label for="inputSource">*Name</label>
-                        <input type="text" class="form-control" id="sshName" placeholder="">
-                      </div>
-                      <p>Copy your public SSH key and paste it in the space below. For instructions on how, follow the steps on the right.</p>
-                      <div class="form-group">
-                        <div class="form-group">
-                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="8"></textarea>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Save SSH Key</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <br>
-        <br>
-        <div class="row">
-          <div class="col-lg-12">
             <h5 class="text-dark" data-toggle="collapse" href="#collapseCloudInit" role="button" aria-expanded="false" aria-controls="collapseCloudInit">
               Cloud-init:
               <i class="fas fa-arrow-down"></i>
@@ -706,32 +589,16 @@
         <br>
         <div class="row">
           <div class="col-lg-12">
-            <h5 class="text-dark">
-              Finalize and create:
-            </h5>
-
               <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="inputName">*Host Name <small class="text-info"> name should be auto-generated upon datetime but allows modify.</small></label>
-                  <input type="text" class="form-control" id="inputName" value="vm-ubuntu-2020080144">
-                  <small>Give an identifying name you will remember them by. Your hostname name can only contain alphanumeric characters, dashes, and periods.</small>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="inputNamespace">*Namespace</label>
-                  <select id="inputNamespace" class="form-control">
-                    <option selected>default</option>
-                    <option>kube-virt</option>
-                    <option>kube-system</option>
-                    <option>...</option>
-                  </select>
-                  <small class="text-info">use the default namespace if no namespace was selected or contains multiple namespace selection.</small>
-                </div>
                 <div class="form-group col-md-12">
                   <label for="inputDesc">Description</label>
                   <textarea class="form-control" id="inputDesc"></textarea>
                 </div>
               </div>
-              <a type="submit" class="btn btn-primary btn-block" href="vm.html">Create</a>
+            <div class="text-center">
+              <a type="submit" class="btn btn-primary" href="templates.html">Create</a>
+              <a type="cancel" class="btn btn-secondary" href="templates.html">Cancel</a>
+            </div>
           </div>
         </div>
 

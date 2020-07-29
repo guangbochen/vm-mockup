@@ -34,7 +34,7 @@ a {
   padding-left: $grid-gutter-width;
   padding-right: $grid-gutter-width;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   min-height: 87%
 }
@@ -61,4 +61,8 @@ a {
   i {
     font-weight: 800;
   }
+}
+
+.border-bottom-template {
+  border-bottom: .1rem solid #36b9cc!important;
 }
