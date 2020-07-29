@@ -67,6 +67,10 @@
       <a class="nav-link" href="ssh-keys.html">
         <span>SSH Keys</span></a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link" href="templates.html">
+        <span>Templates</span></a>
+    </li>
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
@@ -317,8 +321,35 @@
             </div>
           </div>
         </div>
-        <!-- /.container-fluid -->
 
+        <br>
+        <br>
+        <!-- /.container-fluid -->
+        <form>
+          <div class="form-row">
+            <div class="form-group form-check custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="customSwitchTemp" checked>
+              <label class="custom-control-label" for="customSwitchTemp">Use Template</label>
+            </div>
+          </div>
+          <div class="form-row">
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputTemplate">Select template</label>
+              <select id="inputTemplate" class="form-control">
+                <option>Arch Linux</option>
+                <option>CentOS 7</option>
+                <option>CentOS 8</option>
+                <option>Fedora 32</option>
+                <option>Microsoft Windows 10</option>
+                <option>Microsoft Windows Server 2012 R2</option>
+                <option>OpenSUSE Leap 15.0</option>
+                <option>Ubuntu 18.04 LTS</option>
+              </select>
+            </div>
+          </div>
+        </form>
         <br>
         <br>
         <div class="row">
@@ -440,8 +471,6 @@
                         <label for="inputSource">*Source</label>
                         <select id="inputSource" class="form-control">
                           <option selected>Blank</option>
-                          <option>URL</option>
-                          <option>Container</option>
                           <option>Attach Cloned Disks</option>
                           <option>Attach Disks</option>
                         </select>
