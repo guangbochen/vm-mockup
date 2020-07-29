@@ -230,15 +230,22 @@
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
-        <div class="container-fluid">
+        <div class="container-fluid" style="max-width: 100%;">
           <!-- Page Heading -->
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="vm.html">Virtual Machines</a></li>
-              <li class="breadcrumb-item active" aria-current="page">vm-20200715194c</li>
+              <li class="breadcrumb-item"><a class="my-link" onclick="changeImage('overview')">Overview</a></li>
+              <li class="breadcrumb-item"><a class="my-link" onclick="changeImage('details')">Details</a></li>
+              <li class="breadcrumb-item"><a class="my-link" onclick="changeImage('yaml')">YAML</a></li>
+              <li class="breadcrumb-item"><a class="my-link" onclick="changeImage('env')">Environment</a></li>
+              <li class="breadcrumb-item"><a class="my-link" onclick="changeImage('events')">Events</a></li>
+              <li class="breadcrumb-item"><a class="my-link" onclick="changeImage('console')">Console</a></li>
+              <li class="breadcrumb-item"><a class="my-link" onclick="changeImage('network')">Network Interface</a></li>
+              <li class="breadcrumb-item"><a class="my-link" onclick="changeImage('disks')">Disks</a></li>
             </ol>
           </nav>
 
+          <img src="img/vm-detail/overview.png" class="img-fluid" alt="Responsive image" id="vm-detail-img">
         </div>
         <!-- /.container-fluid -->
 
@@ -300,9 +307,14 @@
   <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
   <!-- Page level custom scripts -->
-  <script src="js/demo/datatables-demo.js"></script>
   <script>
-    $('.dropdown-toggle').dropdown()
+    function changeImage(name) {
+      // var hash = location.hash.substr(1);
+      imgPath =  "./img/vm-detail/" + name + ".png";
+      console.log(imgPath)
+      $("#vm-detail-img").attr('src', imgPath);
+      // document.getElementById('vm-detail-img').src = imgPath;
+    }
   </script>
 
 </body>

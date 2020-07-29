@@ -226,16 +226,42 @@
       </nav>
       <!-- End of Topbar -->
 
+      <br>
+      <br>
+      <!-- /.container-fluid -->
       <!-- Begin Page Content -->
       <div class="container-fluid bg-white">
-
         <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4" style="padding-top: 20px;">
+        <div class="d-sm-flex align-items-center justify-content-between mb-4" style="padding-top: 40px;">
           <h1 class="h3 mb-0 text-gray-800">Create Virtual Machine</h1>
         </div>
 
+        <div class="row" style="padding-top: 10px;">
+          <div class="col-lg-12">
+            <p class="text-dark">Use an existing VM Template and revision:</p>
+            <form>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <select id="inputTemplate" class="form-control">
+                    <option>Select a VM template</option>
+                    <option>openSUSE</option>
+                    <option>ubuntu</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-6">
+                  <select id="inputTemplate" class="form-control">
+                    <option>Select a VM template revision</option>
+                    <option>custom1</option>
+                    <option>custom2</option>
+                  </select>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
         <!-- Content Row -->
-        <div class="row">
+        <div class="row" style="padding-top: 20px;">
           <div class="col-lg-12 mb-12">
             <h5 class="text-dark">
               Choose a source:
@@ -246,34 +272,11 @@
                 </svg>
               </a>
             </h5>
+            <small class="small text-info">when use existing VM template and revision, the source image is not editable, it will default to the selected OS image of the VM template.</small>
           </div>
         </div>
 
         <div class="accordion" id="accordionExample">
-        <!--
-        <ul class="nav row">
-          <li class="nav-item">
-            <a class="nav-link active" href="#" type="button" data-toggle="collapse" data-target="#sourceUrl" aria-expanded="true" aria-controls="sourceUrl">
-              Custom Images
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" type="button" data-toggle="collapse" data-target="#sourcePXE" aria-expanded="false" aria-controls="sourcePXE">
-              PXE(Preboot Execution Environment)
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" type="button" data-toggle="collapse" data-target="#sourceContainer" aria-expanded="false" aria-controls="sourceContainer">
-              Container Image
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" type="button" data-toggle="collapse" data-target="#sourceDisk" aria-expanded="false" aria-controls="sourceDisk">
-              Disk
-            </a>
-          </li>
-        </ul> -->
-
           <div class="card">
             <div id="sourceUrl" class="collapse show col-lg-12" data-parent="#accordionExample">
               <div class="card-body">
@@ -322,37 +325,7 @@
           </div>
         </div>
 
-        <br>
-        <br>
-        <!-- /.container-fluid -->
-        <div class="row">
-          <div class="col-lg-12">
-            <p class="text-dark">Use an existing VM Template and revision:</p>
-            <form>
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <select id="inputTemplate" class="form-control">
-                    <option>Select a VM template</option>
-                    <option>openSUSE</option>
-                    <option>ubuntu</option>
-                  </select>
-                </div>
-                <div class="form-group col-md-6">
-                  <select id="inputTemplate" class="form-control">
-                    <option>Select a VM template revision</option>
-                    <option>custom1</option>
-                    <option>custom2</option>
-                  </select>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-
-        <br>
-        <br>
-        <hr>
-        <div class="row">
+        <div class="row" style="padding-top: 40px">
           <div class="col-lg-12">
             <h5 class="text-dark">Choose a Size:</h5>
 
