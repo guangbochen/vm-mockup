@@ -71,6 +71,10 @@
       <a class="nav-link" href="templates.html">
         <span>Templates</span></a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link" href="volume.html">
+        <span>Volumes</span></a>
+    </li>
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
@@ -229,7 +233,7 @@
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4" style="padding-top: 20px;">
-          <h1 class="h3 mb-0 text-gray-800">Add VM Template</h1>
+          <h1 class="h3 mb-0 text-gray-800">Create VM Template</h1>
         </div>
         <hr>
 
@@ -238,12 +242,16 @@
             <form>
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <label for="inputCPU">* Template Name</label>
-                  <input type="text" class="form-control" id="inputCPU" value="ubuntu">
+                  <label for="inputCPU">*Template Name</label>
+                  <input type="text" class="form-control" id="inputCPU" value="ubuntu-my-template">
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="inputMemory">* Revision Name</label>
-                  <input type="text" class="form-control" id="inputMemory" value="small">
+                  <label for="inputMemory">*Namespace</label>
+                  <select id="inputNS" class="form-control">
+                    <option selected>default</option>
+                    <option>dev</option>
+                    <option>test</option>
+                  </select>
                 </div>
               </div>
             </form>
@@ -396,8 +404,6 @@
                         <label for="inputSource">*Source</label>
                         <select id="inputSource" class="form-control">
                           <option selected>Blank</option>
-                          <option>Attach Cloned Disks</option>
-                          <option>Attach Disks</option>
                         </select>
                       </div>
                       <div class="form-group">
@@ -563,6 +569,31 @@
                 </div>
               </div>
             </div> <!-- end of modal -->
+          </div>
+        </div>
+
+        <br>
+        <br>
+        <div class="row">
+          <div class="col-lg-12">
+            <h5 class="text-dark">
+              Authentication:
+              <a type="button" class="btn btn-outline-primary" href="ssh-keys.html" style="margin-left: 5px;">Add New SSH Key</a>
+            </h5>
+
+            <div class="card">
+              <form class="card-body">
+                <p>Choose your SSH keys</p>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                  <label class="form-check-label" for="inlineCheckbox1">Select all</label>
+                </div>
+                <div class="form-check form-check-inline" data-toggle="tooltip" data-placement="top">
+                  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                  <label class="form-check-label" for="inlineCheckbox2">mynewsshkey</label>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
 

@@ -20,7 +20,7 @@
 
 </head>
 
-<body id="page-top">
+<body id="page-top template-page">
 
   <!-- Page Wrapper -->
   <div id="wrapper">
@@ -63,7 +63,7 @@
         <a class="nav-link" href="images.html">
           <span>Images</span></a>
       </li>
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="ssh-keys.html">
           <span>SSH Keys</span></a>
       </li>
@@ -71,7 +71,7 @@
         <a class="nav-link" href="templates.html">
           <span>Templates</span></a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="volume.html">
           <span>Volumes</span></a>
       </li>
@@ -235,81 +235,136 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">SSH Keys</h1>
+            <h1 class="h3 mb-0 text-gray-800">Create Volume</h1>
           </div>
 
           <div class="card shadow mb-4">
-            <div class="card-header py-3">
-              <a type="button" class="btn btn-outline-primary fa-pull-right" data-toggle="modal" data-target="#sshKeyModal">Add SSH Key</a>
-            </div>
             <div class="card-body">
-              <div class="table-responsive">
-                <table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Fingerprint</th>
-                    <th></th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                    <td>mysshkey</td>
-                    <td>51:1c:01:f7:92:e2:26:6a:5b:d4:97:ea:b8:c2:81:fa</td>
-                    <td>
-                      <div class="dropdown">
-                        <button class="btn btn-link dropdown-toggle" type="button" id="actions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                          ...
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="actions">
-                          <a class="dropdown-item" data-toggle="modal" data-target="#sshKeyModal">Edit</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item text-danger" href="#">Delete</a>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                  </tbody>
-                </table>
-              </div>
+              <form>
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <label for="diskName" class="col-form-label">*Name</label>
+                    <input type="text" class="form-control" id="diskName" value="disk-0">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="diskName" class="col-form-label">*Namespace</label>
+                    <select id="inputns" class="form-control">
+                      <option selected>default</options>
+                      <option>kubevirt</option>
+                      <option>dev</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-10">
+                    <label for="inputCPU">*Size</label>
+                    <input type="text" class="form-control" id="inputCPU" value="10">
+                  </div>
+                  <div class="form-group col-md-2">
+                    <label for="inputSize">Size</label>
+                    <select id="inputSize" class="form-control">
+                      <option>MiB</option>
+                      <option selected>GiB</option>
+                      <option>TiB</option>
+                    </select>
+                  </div>
+                </div>
+                <hr>
+
+                <div class="form-group">
+                  <label for="inputSource">*Source</label>
+                  <select id="inputSource" class="form-control">
+                    <option selected value="blank">Blank</option>
+                    <option value="url">VM Image</option>
+                    <option value="container">Container</option>
+                    <option value="pvc">Clone Disk</option>
+                    <option value="existingPVC">Use Existing PVC</option>
+                  </select>
+                </div>
+
+                <div class="form-group" id="volumeUrl">
+                  <label for="inputImage">*Select Image</label>
+                  <select id="inputImage" class="form-control">
+                    <option selected>cirros-0.3.0-x86_64-disk.img</option>
+                    <option>en_windows_10_pro_14393_x86_dvd.iso</option>
+                    <option>ubuntu-18.04.64-disk.img</option>
+                  </select>
+                </div>
+
+                <div class="form-group" id="volumeContainer">
+                  <label for="inputContainer">*Container Image</label>
+                  <input id="inputContainer" class="form-control" type="text">
+                </div>
+
+                <div class="form-group" id="volumePVCNS">
+                  <label for="inputInterface">PVC Namespace</label>
+                  <select id="inputInterface" class="form-control">
+                    <option selected>default</option>
+                    <option>dev</option>
+                    <option>test</option>
+                  </select>
+                </div>
+
+                <div class="form-group" id="volumePvc">
+                  <label for="inputInterface">Persistence Volume Claim</label>
+                  <select id="inputInterface" class="form-control">
+                    <option selected>pvc-foo</option>
+                    <option>pvc-bar</option>
+                    <option>pvc-tar</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="inputInterface">*Interface</label>
+                  <select id="inputInterface" class="form-control">
+                    <option selected>VirtIO</option>
+                    <option>SATA</option>
+                    <option>SCSI</option>
+                  </select>
+                </div>
+                <div class="form-group" id="divStorageClass">
+                  <label for="inputStorageClass">Storage Class</label>
+                  <select id="inputStorageClass" class="form-control">
+                    <option readonly selected>--- Select Storage Class ---</option>
+                    <option>hostpath</option>
+                  </select>
+                </div>
+
+                <div class="form-group" id="divAdvanced">
+                  <p>
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                      Show Advanced
+                    </button>
+                  </p>
+                  <div class="collapse" id="collapseExample">
+                    <div class="form-group">
+                      <label for="inputInterface">Volume Mode</label>
+                      <select id="inputInterface" class="form-control">
+                        <option selected>Filesystem</option>
+                        <option>Block</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputInterface">Access Model</label>
+                      <select id="inputInterface" class="form-control">
+                        <option selected>Single User(RWO)</option>
+                        <option>Shared Access(RWX)</option>
+                        <option>Read Only(ROX)</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mx-auto" style="width: 300px;">
+                  <a type="calcel" class="btn btn-lg btn-outline-secondary" href="volume.html">Cancel</a>
+                  <a type="submit" class="btn btn-lg btn-primary" href="volume.html">Create Volume</a>
+                </div>
+              </form>
             </div>
           </div>
 
         </div>
         <!-- /.container-fluid -->
-
-        <!-- modal -->
-        <div class="modal" id="sshKeyModal" tabindex="-1" role="dialog" aria-labelledby="sshKeyModal" aria-hidden="true">
-          <div class="modal-dialog modal-lg" style="max-width: 700px;">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add Public SSH Key</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <form>
-                  <div class="form-group">
-                    <label for="inputSource">*Name</label>
-                    <input type="text" class="form-control" id="sshName" value="mysshkey">
-                  </div>
-                  <p>Copy your public SSH key and paste it in the space below. For instructions on how, follow the steps on the right.</p>
-                  <div class="form-group">
-                    <div class="form-group">
-                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="8">ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCi8G9R572BRUsvXuFlcQ7BzsWx4uB+8+u4sYiilw+olZWuU4F3VLcNLRfChcweHrRLxlLvdDEa9Iamu7YwSCt4Mr6GgbIG1kpcxrD+SL0f9iwCdUbw9WWtDKvXMEA6h6pWQsDMpjZ8LAJIKBDxjYly/+195BYHIyP8Z1l6Ei5JWayHDu5xYF+Cw1ycHWqm1w8qRywq3hqD6rVM3oq9fAyFbzvlU9FhooRSNTv/WbuuHyo6iYD8zPj0tfxoc59oWt0KuJjIMikc7qobrBlAZTK6kLehHjYQ/1A+MLcyQuiKhsf0oVNMZrNeVNwTbRGgUNU6LNqSn2irNYCJHETkzJ+5 guangbochen@guangbos-MacBook-Pro.local</textarea>
-                    </div>
-                  </div>
-                </form>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Add SSH Key</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- /.modal -->
 
       </div>
       <!-- End of Main Content -->
@@ -366,17 +421,60 @@
 
   <!-- Page level plugins -->
   <script src="vendor/chart.js/Chart.min.js"></script>
-
-  <!-- Page level custom scripts -->
-  <script src="js/demo/chart-area-demo.js"></script>
-  <script src="js/demo/chart-pie-demo.js"></script>
   <script>
-    $(function () {
-      $('[data-toggle="tooltip"]').tooltip()
-    })
+    $(function() {
+      $("#volumeUrl").hide();
+      $("#volumeContainer").hide();
+      $("#volumePVCNS").hide();
+      $("#volumePvc").hide();
+      $('#inputSource').change(function() {
+        let source = document.getElementById("inputSource").value;
+        switch (source) {
+          case "url":
+            console.log("is url")
+            $("#volumeContainer").hide();
+            $("#volumePvc").hide();
+            $("#volumePVCNS").hide();
+            $("#volumeUrl").show();
+            $("#divStorageClass").show();
+            break;
+          case "container":
+            console.log("is container")
+            $("#volumeUrl").hide();
+            $("#volumePvc").hide();
+            $("#volumePVCNS").hide();
+            $("#divStorageClass").hide();
+            $("#divAdvanced").hide();
+            $("#volumeContainer").show();
+            break;
+          case "pvc":
+            console.log("is pvc")
+            $("#volumeUrl").hide();
+            $("#volumeContainer").hide();
+            $("#volumePvc").show();
+            $("#volumePVCNS").show();
+            $("#divStorageClass").show();
+            break;
+          case "existingPVC":
+            console.log("is pvc")
+            $("#volumeUrl").hide();
+            $("#volumeContainer").hide();
+            $("#volumePVCNS").hide();
+            $("#divStorageClass").hide();
+            $("#divAdvanced").hide();
+            $("#volumePvc").show();
+            break;
+          default:
+            $("#volumeUrl").hide();
+            $("#volumeContainer").hide();
+            $("#volumePvc").hide();
+            $("#volumePVCNS").hide();
+            $("#divStorageClass").show();
+            break;
+        }
+      });
+    });
   </script>
-
-
 </body>
 
 </html>

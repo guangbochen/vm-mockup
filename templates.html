@@ -71,6 +71,10 @@
         <a class="nav-link" href="templates.html">
           <span>Templates</span></a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="volume.html">
+          <span>Volumes</span></a>
+      </li>
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
@@ -236,47 +240,26 @@
 
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <p class="text-info fa-pull-left">This page is similar to the RKE template design</p>
-              <a type="button" class="btn btn-primary fa-pull-right" href="template-create.html" style="color: #fff;">Add Template</a>
+              <a type="button" class="btn btn-primary fa-pull-right" href="template-create.html" style="color: #fff;">Create VM Template</a>
             </div>
             <div class="card-body">
-              <div class="row" style="padding:1em 0em;">
-                <div class="col-md-12">
-                  <button type="button" class="btn btn-light">Enable</button>
-                  <button type="button" class="btn btn-light">Disable</button>
-                  <button type="button" class="btn btn-light">Delete</button>
-                </div>
-              </div>
               <table class="table table-hover">
                 <thead>
                 <tr>
-                  <th scope="col">
-                    <input class="" type="checkbox" value="" style="margin-right: 5px;">
-                    State
-                  </th>
-                  <th scope="col">Revision Name</th>
-                  <th scope="col">Default Revision</th>
+                  <th scope="col">Template Name</th>
+                  <th scope="col">Default version</th>
+                  <th scope="col">Latest version</th>
                   <th scope="col">Created</th>
                   <th scope="col" style="max-width: 10px;"></th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                  <td colspan="5" class="border-bottom-template">
-                    <strong style="padding-left: 5px;">VM Template: ubuntu</strong>
-                  </td>
-                </tr>
-                <tr>
                   <td>
-                    <input class="" type="checkbox" value="">
-                    <span class="badge badge-success" style="margin-left: 5px;">Active</span>
+                    <a href="template-create.html">ubuntu-test</a>
                   </td>
-                  <td>
-                    <a href="template-create.html">medium</a>
-                  </td>
-                  <td>
-                    <i class="fas fa-check"></i>
-                  </td>
+                  <td>1</td>
+                  <td>2</td>
                   <td>2 minutes ago</td>
                   <td>
                     <div class="dropdown">
@@ -285,34 +268,7 @@
                       </button>
                       <div class="dropdown-menu" aria-labelledby="actions">
                         <a class="dropdown-item" href="#">Edit</a>
-                        <a class="dropdown-item" href="#">Disable</a>
-                        <a class="dropdown-item" href="#">Clone revision</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item text-danger" href="#">Delete</a>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <input class="" type="checkbox" value="">
-                    <span class="badge badge-warning" style="margin-left: 5px;">Disabled</span>
-                  </td>
-                  <td>
-                    <a href="template-create.html">small</a>
-                  </td>
-                  <td>
-                  </td>
-                  <td>5 minutes ago</td>
-                  <td>
-                    <div class="dropdown">
-                      <button class="btn btn-link dropdown-toggle" type="button" id="actions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        ...
-                      </button>
-                      <div class="dropdown-menu" aria-labelledby="actions">
-                        <a class="dropdown-item" href="#">Edit</a>
-                        <a class="dropdown-item" href="#">Disable</a>
-                        <a class="dropdown-item" href="#">Clone revision</a>
+                        <a class="dropdown-item" href="#">Launch from template</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item text-danger" href="#">Delete</a>
                       </div>
@@ -321,48 +277,12 @@
                 </tr>
 
                 <tr>
-                  <td colspan="5" class="border-bottom-template">
-                    <strong style="padding-left: 5px;">VM Template: openSUSE</strong>
-                  </td>
-                </tr>
-                <tr>
                   <td>
-                    <input class="" type="checkbox" value="">
-                    <span class="badge badge-success" style="margin-left: 5px;">Active</span>
+                    <a href="template-create.html">windows-template</a>
                   </td>
-                  <td>
-                    <a href="template-create.html">custom1</a>
-                  </td>
-                  <td>
-                    <i class="fas fa-check"></i>
-                  </td>
-                  <td>10 minutes ago</td>
-                  <td>
-                    <div class="dropdown">
-                      <button class="btn btn-link dropdown-toggle" type="button" id="actions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        ...
-                      </button>
-                      <div class="dropdown-menu" aria-labelledby="actions">
-                        <a class="dropdown-item" href="#">Edit</a>
-                        <a class="dropdown-item" href="#">Disable</a>
-                        <a class="dropdown-item" href="#">Clone revision</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item text-danger" href="#">Delete</a>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <input class="" type="checkbox" value="">
-                    <span class="badge badge-success" style="margin-left: 5px;">Active</span>
-                  </td>
-                  <td>
-                    <a href="template-create.html">custom2</a>
-                  </td>
-                  <td>
-                  </td>
-                  <td>12 minutes ago</td>
+                  <td>1</td>
+                  <td>2</td>
+                  <td>5 minutes ago</td>
                   <td>
                     <div class="dropdown">
                       <button class="btn btn-link dropdown-toggle" type="button" id="actions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">

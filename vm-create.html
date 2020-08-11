@@ -71,6 +71,10 @@
       <a class="nav-link" href="templates.html">
         <span>Templates</span></a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link" href="volume.html">
+        <span>Volumes</span></a>
+    </li>
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
@@ -242,17 +246,21 @@
             <form>
               <div class="form-row">
                 <div class="form-group col-md-6">
+                  <label for="inputNamespace">*Namespace</label>
+                  <select id="inputNamespace" class="form-control">
+                    <option selected>default</option>
+                    <option>kube-virt</option>
+                    <option>kube-system</option>
+                    <option>...</option>
+                  </select>
+                  <small class="text-info">use the default namespace if no namespace was selected or contains multiple namespace selection.</small>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputNamespace">Use an existing VM Template</label>
                   <select id="inputTemplate" class="form-control">
                     <option>Select a VM template</option>
                     <option>openSUSE</option>
                     <option>ubuntu</option>
-                  </select>
-                </div>
-                <div class="form-group col-md-6">
-                  <select id="inputTemplate" class="form-control">
-                    <option>Select a VM template revision</option>
-                    <option>custom1</option>
-                    <option>custom2</option>
                   </select>
                 </div>
               </div>
@@ -428,8 +436,7 @@
                         <label for="inputSource">*Source</label>
                         <select id="inputSource" class="form-control">
                           <option selected>Blank</option>
-                          <option>Attach Cloned Disks</option>
-                          <option>Attach Disks</option>
+                          <option>Attach Volume</option>
                         </select>
                       </div>
                       <div class="form-group">
@@ -684,20 +691,10 @@
             </h5>
 
               <div class="form-row">
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-12">
                   <label for="inputName">*Host Name <small class="text-info"> name should be auto-generated upon datetime but allows modify.</small></label>
                   <input type="text" class="form-control" id="inputName" value="vm-ubuntu-2020080144">
                   <small>Give an identifying name you will remember them by. Your hostname name can only contain alphanumeric characters, dashes, and periods.</small>
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="inputNamespace">*Namespace</label>
-                  <select id="inputNamespace" class="form-control">
-                    <option selected>default</option>
-                    <option>kube-virt</option>
-                    <option>kube-system</option>
-                    <option>...</option>
-                  </select>
-                  <small class="text-info">use the default namespace if no namespace was selected or contains multiple namespace selection.</small>
                 </div>
                 <div class="form-group col-md-12">
                   <label for="inputDesc">Description</label>
